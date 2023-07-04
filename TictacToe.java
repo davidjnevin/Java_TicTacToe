@@ -27,9 +27,11 @@ class Main {
             if (temp == 'x') {
                 displayBoard(game_board);
                 System.out.println("Player1 (x) has won!");
+                return;
             } else if (temp == 'o') {
                 displayBoard(game_board);
                 System.out.println("Player2 (o) has won!");
+                return;
             } else {
                 // a tie
                 if (tie(game_board)) {
@@ -90,12 +92,12 @@ class Main {
 
         while (true) {
 
-            try (Scanner input = new Scanner(System.in)) {
-                System.out.print("Enter a row number (0, 1, 2): ");
-                row = input.nextInt();
-                System.out.print("Enter a column number (0, 1, 2): ");
-                col = input.nextInt();
-            }
+            Scanner input = new Scanner(System.in);
+            System.out.print("Enter a row number (0, 1, 2): ");
+            row = input.nextInt();
+            System.out.print("Enter a column number (0, 1, 2): ");
+            col = input.nextInt();
+
             // check if the row and col are valid
             if (row < 0 || col < 0 || row > 2 || col > 2) {
                 System.out.println("This position if not on the game board. Please try again.");
@@ -106,6 +108,7 @@ class Main {
 
             } else {
                 game_board[row][col] = c;
+                return;
             }
         }
     }
